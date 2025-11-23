@@ -1,0 +1,59 @@
+<header class="header">
+    <div class="header-content">
+        <a href="/" class="logo">
+            <span class="logo-icon">☕</span>
+            <h1 class="logo-text">BrewTunes</h1>
+            <span class="logo-icon">🎵</span>
+        </a>
+    </div>
+</header>
+
+<style>
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: scale(1.05);
+    }
+
+    .logo-icon {
+        font-size: 1.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 0;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .header {
+            padding: 1rem !important;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+        }
+
+        .logo-icon {
+            font-size: 1.25rem;
+        }
+
+        .theme-text {
+            display: none;
+        }
+    }
+</style>

@@ -96,23 +96,35 @@ export default function EntriesGrid() {
           <div key={entry.id} className="entry-card">
             {/* Album art or placeholder */}
             {entry.album ? (
-              <img src={entry.album} alt={entry.song} className="album-art"/>
-            ) : (
-              <div className="album-art" style={{
+              <img
+                src={entry.album}
+                alt={entry.song}
+                className="album-art"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+            ) : null}
+            <div
+              className={entry.album ? 'hidden album-art' : 'album-art'}
+              style={{
                 background: 'linear-gradient(135deg, #6F4E37 0%, #C19A6B 100%)',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                flexDirection: 'column',
-                fontSize: '3rem',
-                padding: '1rem',
-                textAlign: 'center'
-              }}>
-                <span>☕</span>
-                <span style={{ fontSize: '1.5rem' }}>🎵</span>
-                <span style={{ fontSize: '0.75rem', marginTop: '0.5rem' }}>No Album Art</span>
-              </div>
-            )}
+                padding: '2rem',
+                textAlign: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              <span style={{ fontSize: '4rem' }}>☕</span>
+              <span style={{ fontSize: '2.5rem' }}>🎵</span>
+              <span style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.8)', marginTop: '0.5rem' }}>
+    No Album Art
+  </span>
+            </div>
 
             {/* Entry content */}
             <div className="entry-content">

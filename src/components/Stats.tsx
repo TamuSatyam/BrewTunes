@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 interface Entry {
   id: string;
@@ -13,16 +13,16 @@ interface Entry {
 export default function Stats() {
   const [totalEntries, setTotalEntries] = useState(0);
   const [uniqueCoffees, setUniqueCoffees] = useState(0);
-  const [favoriteCoffee, setFavoriteCoffee] = useState('-');
+  const [favoriteCoffee, setFavoriteCoffee] = useState("-");
 
   useEffect(() => {
     const loadStats = () => {
-      const storedEntries = localStorage.getItem('BrewTuneEntries');
+      const storedEntries = localStorage.getItem("BrewTuneEntries");
 
       if (!storedEntries) {
         setTotalEntries(0);
         setUniqueCoffees(0);
-        setFavoriteCoffee('-');
+        setFavoriteCoffee("-");
 
         return;
       }
@@ -30,16 +30,16 @@ export default function Stats() {
 
       setTotalEntries(entries.length);
 
-      const coffeeTypes = entries.map(entry => entry.coffee);
+      const coffeeTypes = entries.map((entry) => entry.coffee);
       const uniqueSet = new Set(coffeeTypes);
       setUniqueCoffees(uniqueSet.size);
 
       const counts: { [key: string]: number } = {};
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         counts[entry.coffee] = (counts[entry.coffee] || 0) + 1;
       });
       let maxCount = 0;
-      let mostCommon = '-';
+      let mostCommon = "-";
       for (const coffee in counts) {
         if (counts[coffee] > maxCount) {
           maxCount = counts[coffee];
@@ -50,9 +50,9 @@ export default function Stats() {
     };
     loadStats();
 
-    window.addEventListener('entriesUpdated', loadStats);
+    window.addEventListener("entriesUpdated", loadStats);
 
-    return () => window.removeEventListener('entriesUpdated', loadStats);
+    return () => window.removeEventListener("entriesUpdated", loadStats);
   }, []);
 
   return (

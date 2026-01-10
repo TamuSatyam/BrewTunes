@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 interface Entry {
   id: string;
@@ -53,7 +53,7 @@ export default function Stats() {
     window.addEventListener('entriesUpdated', loadStats);
 
     return () => window.removeEventListener('entriesUpdated', loadStats);
-    }, []);
+  }, []);
 
   return (
     <section className="stats-section">

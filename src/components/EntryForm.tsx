@@ -1,4 +1,4 @@
-import {type FormEvent, useState} from "react";
+import { type FormEvent, useState } from "react";
 
 export default function EntryForm() {
     const [date, setDate] = useState('');

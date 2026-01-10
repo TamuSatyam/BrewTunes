@@ -1,44 +1,44 @@
 ---
-import Layout from '../components/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Stats from '../components/Stats';
-import EntryForm from '../components/EntryForm';
-import EntriesGrid from '../components/EntriesGrid';
-import Footer from '../components/Footer.astro';
+import Layout from "../components/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Stats from "../components/Stats";
+import EntryForm from "../components/EntryForm";
+import EntriesGrid from "../components/EntriesGrid";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout
-        title="BrewTunes - Your Personal Music & Coffee Journal"
-        description="Your personal journal for coffee and music pairings. Log what you're brewing and what you're listening to."
+  title="BrewTunes - Your Personal Music & Coffee Journal"
+  description="Your personal journal for coffee and music pairings. Log what you're brewing and what you're listening to."
 >
-    <Header />
+  <Header />
 
-    <main>
-        <Hero />
+  <main>
+    <Hero />
 
-        <Stats client:load />
+    <Stats client:load />
 
-        <section class="add-entry-section" id="add-entry">
-            <h2>Add New Entry</h2>
-            <EntryForm client:load />
-        </section>
+    <section class="add-entry-section" id="add-entry">
+      <h2>Add New Entry</h2>
+      <EntryForm client:load />
+    </section>
 
-        <div class="controls-section">
-            <div class="search-box">
-                <label for="search"></label><input
-                        type="text"
-                        id="search"
-                        placeholder="Search by coffee or artist..."
-                />
-            </div>
-        </div>
+    <div class="controls-section">
+      <div class="search-box">
+        <label for="search"></label><input
+          type="text"
+          id="search"
+          placeholder="Search by coffee or artist..."
+        />
+      </div>
+    </div>
 
-        <section class="entries-section">
-            <h2>Your Entries</h2>
-            <EntriesGrid client:load />
-        </section>
-    </main>
+    <section class="entries-section">
+      <h2>Your Entries</h2>
+      <EntriesGrid client:load />
+    </section>
+  </main>
 
-    <Footer />
+  <Footer />
 </Layout>

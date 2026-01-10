@@ -6,66 +6,73 @@ interface Props {
 }
 
 const {
-  title = 'BrewTunes - Your Personal Music & Coffee Journal',
-  description = 'Your personal journal for coffee and music pairings. Log what you\'re brewing and what you\'re listening to.',
-  image = 'https://og-image.vercel.app/BrewTunes.png?theme=light&md=1&fontSize=100px',
+  title = "BrewTunes - Your Personal Music & Coffee Journal",
+  description = "Your personal journal for coffee and music pairings. Log what you're brewing and what you're listening to.",
+  image = "https://og-image.vercel.app/BrewTunes.png?theme=light&md=1&fontSize=100px",
 } = Astro.props;
 
-const siteUrl = 'https://brew-tunes.vercel.app';
+const siteUrl = "https://brew-tunes.vercel.app";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const ogImageURL = image;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Basic Meta Tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="generator" content={Astro.generator} />
+  <head>
+    <!-- Basic Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
 
-  <!-- Emoji Favicon (works everywhere) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <!-- Emoji Favicon (works everywhere) -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>"
+    />
 
-  <!-- Apple Touch Icon -->
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <!-- Apple Touch Icon -->
+    <link
+      rel="apple-touch-icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>"
+    />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href={canonicalURL} />
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
 
-  <!-- Primary Meta Tags -->
-  <title>{title}</title>
-  <meta name="title" content={title} />
-  <meta name="description" content={description} />
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
 
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#6F4E37" />
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6F4E37" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImageURL} />
-  <meta property="og:image:alt" content="BrewTunes - Coffee and Music Journal" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta
+      property="og:image:alt"
+      content="BrewTunes - Coffee and Music Journal"
+    />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content={canonicalURL} />
-  <meta property="twitter:title" content={title} />
-  <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content={ogImageURL} />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageURL} />
 
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="/site.webmanifest" />
-</head>
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
 
-<body>
-<slot />
-</body>
-
+  <body>
+    <slot />
+    <style is:global>
+      @import "../styles/global.css";
+    </style>
+  </body>
 </html>
-
-<style is:global>
-  @import '../styles/global.css';
-</style>

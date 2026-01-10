@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 interface Entry {
   id: string;
@@ -69,7 +69,7 @@ export default function EntriesGrid() {
     );
   }
 
-  const deleteEntry = (idToDelete: string)=> {
+  const deleteEntry = (idToDelete: string) => {
     const updateEntries = entries.filter(entry => entry.id !== idToDelete);
 
     setEntries(updateEntries);
@@ -122,8 +122,8 @@ export default function EntriesGrid() {
               <span style={{ fontSize: '4rem' }}>☕</span>
               <span style={{ fontSize: '2.5rem' }}>🎵</span>
               <span style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.8)', marginTop: '0.5rem' }}>
-    No Album Art
-  </span>
+                No Album Art
+              </span>
             </div>
 
             {/* Entry content */}
